@@ -28,12 +28,12 @@ const Hero = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            {/* <button
+            <button
               className="btn btn-primary"
               onClick={() => document.getElementById("my_modal_1").showModal()}
             >
               Get Started
-            </button> */}
+            </button>
             <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
                 <h3 className="font-bold text-lg">Hello!</h3>
