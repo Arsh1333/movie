@@ -10,13 +10,15 @@ const reviewSchema = new mongoose.Schema(
     },
     themes: {
       type: String,
+      required: true,
     },
     owner: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    review: {
+    rating: {
       type: Number,
+      required: true,
     },
     date: {
       type: Date,
@@ -26,4 +28,4 @@ const reviewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const Reviews = mongoose.models("Reviews", reviewSchema);
+export const Review = mongoose.model("Review", reviewSchema);

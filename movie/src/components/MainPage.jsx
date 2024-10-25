@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const MainPage = () => {
@@ -29,7 +30,10 @@ const MainPage = () => {
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">moviesForU </a>
+          {/* <a className="btn btn-ghost text-xl">moviesForU </a> */}
+          <Link to="/" className="btn btn-ghost text-xl">
+            moviesForU
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -74,9 +78,109 @@ const MainPage = () => {
               <p>{movieDetails.Plot}</p>
               <p>IMDB: {movieDetails.imdbRating}</p>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary sm: mr-[80px] mt-[10px]">
+                {/* <Link to="/">
+                  {" "}
+                  <button className="btn btn-primary sm: mr-[80px] mt-[10px]">
+                    Review
+                  </button>
+                </Link> */}
+                <button
+                  className="btn btn-primary"
+                  onClick={() =>
+                    document.getElementById("my_modal_1").showModal()
+                  }
+                >
                   Review
                 </button>
+                <dialog id="my_modal_1" className="modal">
+                  <div className="modal-box">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn btn-circle">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+                    </form>
+                    {/* <h3 className="font-bold text-lg">Hello!</h3> */}
+                    <p className="py-4">
+                      Give your review and and ratings for{" "}
+                      <span className="text-green-500">
+                        {movieDetails.Title}{" "}
+                      </span>
+                    </p>
+                    <div className="modal-action">
+                      <div className="py-2">
+                        <label
+                          className="block mb-2 text-sm font-medium text-gray-700"
+                          htmlFor="movieTitle"
+                        >
+                          Movie Review
+                        </label>
+                        <input
+                          id="movieTitle"
+                          name="movieTitle"
+                          type="text"
+                          className="input input-bordered w-full"
+                          placeholder="Enter the movie review"
+                          required
+                        />
+                      </div>
+                      <div className="py-2">
+                        <label
+                          className="block mb-2 text-sm font-medium text-gray-700"
+                          htmlFor="movieTitle"
+                        >
+                          Overall Ratings
+                        </label>
+                        <input
+                          id="movieTitle"
+                          name="movieTitle"
+                          type="text"
+                          className="input input-bordered w-full"
+                          placeholder="(1-lowest 10-highest)"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="py-2">
+                      <label
+                        className="block mb-2 text-sm font-medium text-gray-700"
+                        htmlFor="movieTitle"
+                      >
+                        Themes
+                      </label>
+                      <input
+                        id="movieTitle"
+                        name="movieTitle"
+                        type="text"
+                        className="input input-bordered w-full"
+                        placeholder="Enter the movie themes (eg : sad,happy etc)"
+                        required
+                      />
+                    </div>
+
+                    <button
+                      className="btn btn-primary m-[20px]"
+                      onClick={() =>
+                        document.getElementById("my_modal_1").showModal()
+                      }
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </dialog>
               </div>
             </div>
           </div>
