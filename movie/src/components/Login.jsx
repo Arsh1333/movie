@@ -8,7 +8,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const response = await axios
-      .post("", {
+      .post("http://localhost:8000/api/users/login", {
         email: email,
         password: password,
       })
