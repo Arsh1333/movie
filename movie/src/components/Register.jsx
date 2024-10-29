@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ const Register = () => {
       .then((response) => {
         console.log(response);
         console.log("User created successfully");
+        navigate("/login");
       })
       .catch((err) => {
         console.log(err);
@@ -44,12 +47,12 @@ const Register = () => {
 
           <div>
             <label className="block text-gray-600 font-medium mb-2">
-              Password:
+              Email:
             </label>
             <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -57,12 +60,12 @@ const Register = () => {
 
           <div>
             <label className="block text-gray-600 font-medium mb-2">
-              Email:
+              Password:
             </label>
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
