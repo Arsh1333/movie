@@ -4,11 +4,11 @@ import cors from "cors";
 import connectDb from "./db/connectDb.db.js";
 import reviewRouter from "./routes/review.routes.js";
 import userRouter from "./routes/user.routes.js";
+
 dotenv.config({
   path: "./.env",
 });
 const app = express();
-
 app.use(
   cors({
     origin: process.env.CORS_ORIGIN,

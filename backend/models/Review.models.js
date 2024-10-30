@@ -20,6 +20,9 @@ const reviewSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    ownerId: {
+      type: String,
+    },
     date: {
       type: Date,
       default: Date.now,

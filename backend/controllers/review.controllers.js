@@ -1,10 +1,17 @@
 import { Review } from "../models/Review.models.js";
 import mongoose from "mongoose";
+import { authenticateToken } from "../middleware/authenticate.token.js";
 
 const addReviews = async (req, res) => {
   const { content, themes, rating, title } = req.body;
   try {
-    const review = await Review.create({ content, themes, rating, title });
+    const review = await Review.create({
+      content,
+      themes,
+      rating,
+      title,
+      ownerId: req.user._id,
+    });
     res.status(200).json(review);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -23,7 +30,14 @@ const getReviews = async (req, res) => {
     console.log(error);
   }
 };
-
+const getReviewsByUser = async (req, res) => {
+  try {
+    const review = await Review.find({ ownerId: req.user._id }).exec();
+    res.status(200).json(review);
+  } catch (error) {
+    console.log(error);
+  }
+};
 const deleteReviews = async (req, res) => {
   try {
     const { id } = req.params;
@@ -39,4 +53,4 @@ const deleteReviews = async (req, res) => {
     console.log(error);
   }
 };
-export { getReviews, addReviews, deleteReviews };
+export { getReviews, addReviews, deleteReviews, getReviewsByUser };

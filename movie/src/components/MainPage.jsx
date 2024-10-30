@@ -12,6 +12,27 @@ const MainPage = () => {
   const handleSearchMovie = (e) => {
     setSearchMovie(e.target.value);
   };
+  const handleReviewSubmit = async () => {
+    const token = localStorage.getItem("token");
+    const res = axios
+      .post(
+        "http://localhost:8000/api/reviews/postReviews",
+
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        console.log(token);
+      })
+      .catch((err) => {
+        console.log(token);
+        console.log(err);
+      });
+  };
   const movieResponse = async () => {
     const response = axios
       .get(`https://www.omdbapi.com/?t=${searchMovie}&apikey=3cb18b0`)
@@ -173,9 +194,7 @@ const MainPage = () => {
 
                     <button
                       className="btn btn-primary m-[20px]"
-                      onClick={() =>
-                        document.getElementById("my_modal_1").showModal()
-                      }
+                      onClick={handleReviewSubmit}
                     >
                       Submit
                     </button>
