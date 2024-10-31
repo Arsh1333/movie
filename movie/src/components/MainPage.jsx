@@ -5,6 +5,9 @@ import { useState } from "react";
 
 const MainPage = () => {
   const [searchMovie, setSearchMovie] = useState("");
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState("");
+  const [themes, setThemes] = useState("");
   const [movieDetails, setMovieDetails] = useState({});
   const [load, setLoad] = useState("");
   const [dec, setDec] = useState(" ");
@@ -14,24 +17,30 @@ const MainPage = () => {
   };
   const handleReviewSubmit = async () => {
     const token = localStorage.getItem("token");
-    const res = axios
-      .post(
-        "http://localhost:8000/api/reviews/postReviews",
 
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/reviews/postReviews",
+        {
+          // Include any data you want to send along with the post request, for example:
+          content,
+          title: movieDetails.Title,
+          rating,
+          themes,
+          // Add other fields as necessary
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
-      )
-      .then((res) => {
-        console.log(res);
-        console.log(token);
-      })
-      .catch((err) => {
-        console.log(token);
-        console.log(err);
-      });
+      );
+
+      console.log(res.data); // Logs the response data
+    } catch (err) {
+      console.error("Token:", token);
+      console.error("Error:", err.response ? err.response.data : err.message);
+    }
   };
   const movieResponse = async () => {
     const response = axios
@@ -154,6 +163,7 @@ const MainPage = () => {
                           name="movieTitle"
                           type="text"
                           className="input input-bordered w-full"
+                          onChange={(e) => setContent(e.target.value)}
                           placeholder="Enter the movie review"
                           required
                         />
@@ -171,6 +181,7 @@ const MainPage = () => {
                           type="text"
                           className="input input-bordered w-full"
                           placeholder="(1-lowest 10-highest)"
+                          onChange={(e) => setRating(e.target.value)}
                           required
                         />
                       </div>
@@ -188,6 +199,7 @@ const MainPage = () => {
                         type="text"
                         className="input input-bordered w-full"
                         placeholder="Enter the movie themes (eg : sad,happy etc)"
+                        onChange={(e) => setThemes(e.target.value)}
                         required
                       />
                     </div>
