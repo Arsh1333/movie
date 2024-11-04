@@ -43,7 +43,7 @@ const Hero = () => {
 
                 <div className="modal-action">
                   <form method="dialog">
-                    <Link to="/mainpage" className="btn btn-warning">
+                    <Link to="/public" className="btn btn-warning">
                       Explore
                     </Link>
                     {/* if there is a button in form, it will close the modal */}

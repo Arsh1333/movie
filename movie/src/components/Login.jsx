@@ -17,7 +17,7 @@ const Login = () => {
       .then((res) => {
         console.log(res.data.token);
         const token = res.data.token;
-        localStorage.setItem("token", token);
+        sessionStorage.setItem("token", token);
         navigate("/mainpage");
       })
       .catch((error) => console.log(error));

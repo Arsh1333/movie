@@ -11,12 +11,13 @@ const MainPage = () => {
   const [movieDetails, setMovieDetails] = useState({});
   const [load, setLoad] = useState("");
   const [dec, setDec] = useState(" ");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSearchMovie = (e) => {
     setSearchMovie(e.target.value);
   };
   const handleReviewSubmit = async () => {
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     try {
       const res = await axios.post(
@@ -35,7 +36,7 @@ const MainPage = () => {
           },
         }
       );
-
+      setSubmitted(true);
       console.log(res.data); // Logs the response data
     } catch (err) {
       console.error("Token:", token);
@@ -210,6 +211,12 @@ const MainPage = () => {
                     >
                       Submit
                     </button>
+                    {submitted && (
+                      <h1 className="text-green-400">
+                        {" "}
+                        Review Submitted Successfully
+                      </h1>
+                    )}
                   </div>
                 </dialog>
               </div>

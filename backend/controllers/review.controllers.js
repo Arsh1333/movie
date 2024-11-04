@@ -5,13 +5,18 @@ import { authenticateToken } from "../middleware/authenticate.token.js";
 const addReviews = async (req, res) => {
   const { content, themes, rating, title } = req.body;
   try {
-    const review = await Review.create({
+    // Create the review with owner's ID from req.user._id
+    let review = await Review.create({
       content,
       themes,
       rating,
       title,
-      ownerId: req.user._id,
+      owner: req.user._id,
     });
+
+    // Populate the owner's name (and any other fields you want) in the response
+    review = await review.populate("owner", "username");
+
     res.status(200).json(review);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -24,8 +29,8 @@ const addReviews = async (req, res) => {
 
 const getReviews = async (req, res) => {
   try {
-    const review = await Review.find();
-    res.status(200).json(review);
+    const reviews = await Review.find().populate("owner", "username");
+    res.status(200).json(reviews);
   } catch (error) {
     console.log(error);
   }

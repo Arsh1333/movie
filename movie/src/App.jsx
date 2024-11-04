@@ -4,6 +4,7 @@ import Hero from "./components/Hero.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import MainPage from "./components/MainPage.jsx";
+import PublicReviews from "./components/PublicReviews.jsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/mainpage" element={<MainPage />} />
+        <Route path="/public" element={<PublicReviews />} />
       </Routes>
     </Router>
     // <>
