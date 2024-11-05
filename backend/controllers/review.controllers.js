@@ -29,7 +29,9 @@ const addReviews = async (req, res) => {
 
 const getReviews = async (req, res) => {
   try {
-    const reviews = await Review.find().populate("owner", "username");
+    const reviews = await Review.find().populate("owner", "username").sort({
+      createdAt: -1,
+    });
     res.status(200).json(reviews);
   } catch (error) {
     console.log(error);
