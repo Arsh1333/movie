@@ -63,14 +63,17 @@ const MainPage = () => {
         <div className="flex-1">
           {/* <a className="btn btn-ghost text-xl">moviesForU </a> */}
           <Link to="/" className="btn btn-ghost text-xl">
-            moviesForU
+            movieReview
+          </Link>
+          <Link to="/your" className="btn btn-sm">
+            Your reviews
           </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Movies"
               value={searchMovie}
               onChange={handleSearchMovie}
               className="input input-bordered w-24 md:w-auto"

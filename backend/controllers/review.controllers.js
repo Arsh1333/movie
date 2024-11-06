@@ -39,7 +39,10 @@ const getReviews = async (req, res) => {
 };
 const getReviewsByUser = async (req, res) => {
   try {
-    const review = await Review.find({ ownerId: req.user._id }).exec();
+    const review = await Review.find({ owner: req.user._id }).populate(
+      "owner",
+      "username"
+    );
     res.status(200).json(review);
   } catch (error) {
     console.log(error);
