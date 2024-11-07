@@ -19,6 +19,9 @@ const ReviewsList = ({ reviews }) => {
             <p>
               <strong>Reviewed by:</strong> {review.owner.username}
             </p>
+            <p>
+              <strong>Reviewed on:</strong> {review.date}
+            </p>
           </div>
         </div>
       ))}
@@ -35,6 +38,7 @@ const PublicReviews = () => {
       const response = await axios.get(
         "http://localhost:8000/api/reviews/getReviews"
       );
+      console.log(response.data);
       setUserReviews(response.data); // Update state with fetched reviews
     } catch (error) {
       console.log(error);

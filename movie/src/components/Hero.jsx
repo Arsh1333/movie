@@ -24,9 +24,9 @@ const Hero = () => {
               REVIEWS
             </h1>
             <p className="mb-5 text-white">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              With detailed themes, ratings, and insights, movieReview ensures
+              you spend less time searching and more time watching. Dive in and
+              make every movie night count!.
             </p>
             <button
               className="btn btn-primary"
@@ -38,7 +38,9 @@ const Hero = () => {
               <div className="modal-box">
                 <h3 className="font-bold text-lg">Hello!</h3>
                 <p className="py-4">
-                  Explore range of movie reviews made by our users
+                  Explore range of movie reviews made by our users.{" "}
+                  <span className="text-green-400">Login or Register</span>{" "}
+                  first for viewing personallized reviews
                 </p>
 
                 <div className="modal-action">

@@ -19,6 +19,9 @@ const ReviewsList = ({ reviews }) => {
             <p>
               <strong>Reviewed by:</strong> {review.owner.username}
             </p>
+            <p>
+              <strong>Reviewed on:</strong> {review.date}
+            </p>
           </div>
         </div>
       ))}
