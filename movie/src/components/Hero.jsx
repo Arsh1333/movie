@@ -38,7 +38,7 @@ const Hero = () => {
               <div className="modal-box">
                 <h3 className="font-bold text-lg">Hello!</h3>
                 <p className="py-4">
-                  Explore range of movies from our database
+                  Explore range of movie reviews made by our users
                 </p>
 
                 <div className="modal-action">

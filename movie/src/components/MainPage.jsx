@@ -65,9 +65,20 @@ const MainPage = () => {
           <Link to="/" className="btn btn-ghost text-xl">
             movieReview
           </Link>
-          <Link to="/your" className="btn btn-sm">
+          {/* <Link to="/your" className="btn btn-sm">
             Your reviews
-          </Link>
+          </Link> */}
+          <details className="dropdown">
+            <summary className="btn m-1">Reviews</summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <Link to="/public" className="m-[10px]">
+                Public Reviews
+              </Link>
+              <Link to="/your" className="m-[10px]">
+                Personal Reviews
+              </Link>
+            </ul>
+          </details>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
