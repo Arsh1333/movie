@@ -36,7 +36,7 @@ const YourReviews = () => {
   const getReviews = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/reviews/getReviewsByUser/",
+        "https://moviereview-th0i.onrender.com/api/reviews/getReviewsByUser/",
         {
           headers: {
             Authorization: `Bearer ${token}`,

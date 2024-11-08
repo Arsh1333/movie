@@ -21,7 +21,7 @@ const MainPage = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/reviews/postReviews",
+        "https://moviereview-th0i.onrender.com/api/reviews/postReviews",
         {
           // Include any data you want to send along with the post request, for example:
           content,

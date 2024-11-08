@@ -11,7 +11,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     const response = await axios
-      .post("http://localhost:8000/api/users/register", {
+      .post("https://moviereview-th0i.onrender.com/api/users/register", {
         username: username,
         email: email,
         password: password,

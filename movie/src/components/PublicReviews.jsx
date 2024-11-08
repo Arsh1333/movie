@@ -36,7 +36,7 @@ const PublicReviews = () => {
   const getReviews = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/reviews/getReviews"
+        "https://moviereview-th0i.onrender.com/api/reviews/getReviews"
       );
       console.log(response.data);
       setUserReviews(response.data); // Update state with fetched reviews

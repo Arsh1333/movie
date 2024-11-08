@@ -10,7 +10,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const response = await axios
-      .post("http://localhost:8000/api/users/login", {
+      .post("https://moviereview-th0i.onrender.com/api/users/login", {
         email: email,
         password: password,
       })
