@@ -32,7 +32,7 @@ const Hero = () => {
               className="btn btn-primary"
               onClick={() => document.getElementById("my_modal_1").showModal()}
             >
-              Get Started
+              Public Reviews
             </button>
             <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
