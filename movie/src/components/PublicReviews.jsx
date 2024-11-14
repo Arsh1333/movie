@@ -51,6 +51,7 @@ const PublicReviews = () => {
 
   return (
     <div>
+      <h1 className="text-2xl m-6">Public Reviews</h1>
       <ReviewsList reviews={userReviews} /> {/* Pass reviews to ReviewsList */}
     </div>
   );
